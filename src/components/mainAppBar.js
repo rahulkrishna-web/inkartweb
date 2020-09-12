@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -14,8 +15,15 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
+  grow: {
     flexGrow: 1,
+  },
+  title: {
+    color: "#fff",
+    textDecoration: "none",
+  },
+  btn: {
+    color: "#fff",
   },
 }));
 
@@ -34,10 +42,18 @@ export default function MainAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Inkart
-          </Typography>
-          <Button color="inherit">Login</Button>
+
+          <Link to="/">
+            <Typography variant="h6" className={classes.title}>
+              Inkart
+            </Typography>
+          </Link>
+          <div className={classes.grow}></div>
+          <Link to="/signup">
+            <Button color="inherit" className={classes.btn}>
+              Login
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
